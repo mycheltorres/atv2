@@ -1,0 +1,46 @@
+<?php
+// Função para ordenar os valores de acordo com o critério especificado
+function ordenarValores($valores) {
+    $pares = [];
+    $impares = [];
+
+    // Separa os números pares e ímpares
+    foreach ($valores as $valor) {
+        if ($valor % 2 == 0) {
+            $pares[] = $valor;
+        } else {
+            $impares[] = $valor;
+        }
+    }
+
+    // Ordena os números pares em ordem crescente
+    sort($pares);
+
+    // Ordena os números ímpares em ordem decrescente
+    rsort($impares);
+
+    // Combina as duas listas ordenadas
+    $resultado = array_merge($pares, $impares);
+
+    return $resultado;
+}
+
+// Leitura do número de valores
+$n = intval(trim(fgets(STDIN)));
+
+// Array para armazenar os valores
+$valores = [];
+
+// Leitura dos valores
+for ($i = 0; $i < $n; $i++) {
+    $valores[] = intval(trim(fgets(STDIN)));
+}
+
+// Ordena os valores de acordo com o critério especificado
+$valores_ordenados = ordenarValores($valores);
+
+// Imprime os valores ordenados
+foreach ($valores_ordenados as $valor) {
+    echo $valor . PHP_EOL;
+}
+?>
