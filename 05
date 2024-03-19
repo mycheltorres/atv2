@@ -1,0 +1,26 @@
+<?php
+while (true) {
+    // Tenta ler o número de lesmas
+    $num_lesmas = readline();
+
+    // Se não for possível ler, significa que chegou ao final do arquivo
+    if ($num_lesmas === false) {
+        break;
+    }
+
+    // Leitura das velocidades das lesmas
+    $velocidades = explode(" ", readline());
+
+    // Encontrar a lesma mais veloz e determinar seu nível
+    $maior_velocidade = max($velocidades);
+    $nivel = 1;
+    if ($maior_velocidade >= 10 && $maior_velocidade < 20) {
+        $nivel = 2;
+    } elseif ($maior_velocidade >= 20) {
+        $nivel = 3;
+    }
+
+    // Saída do nível da lesma mais veloz
+    echo $nivel . "\n";
+}
+?>
