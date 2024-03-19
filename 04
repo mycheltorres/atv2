@@ -1,0 +1,29 @@
+<?php
+// Função para calcular a soma dos inteiros consecutivos entre M e N
+function calcularSoma($m, $n) {
+    $soma = 0;
+    $sequencia = '';
+    
+    // Determina o menor e o maior entre M e N
+    $menor = min($m, $n);
+    $maior = max($m, $n);
+
+    // Constrói a sequência e calcula a soma
+    for ($i = $menor; $i <= $maior; $i++) {
+        $soma += $i;
+        $sequencia .= $i . ' ';
+    }
+
+    // Remove o espaço extra no final da sequência
+    $sequencia = rtrim($sequencia);
+
+    // Imprime a sequência e a soma
+    echo $sequencia . " Sum=" . $soma . "\n";
+}
+
+// Leitura dos pares de valores M e N
+while (true) {
+    // Leitura dos valores
+    $entrada = explode(" ", readline());
+    $m = intval($entrada[0]);
+    $n = intval($entrada[1]);
