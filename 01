@@ -1,0 +1,25 @@
+<?php
+// Função para encontrar o maior entre dois números
+function maior($a, $b) {
+    return (($a + $b + abs($a - $b)) / 2);
+}
+
+// Função para encontrar o maior entre três números
+function maiorEntreTres($a, $b, $c) {
+    return maior(maior($a, $b), $c);
+}
+
+// Leitura dos três valores
+$entrada = readline();
+$valores = explode(" ", $entrada);
+
+$a = (int)$valores[0];
+$b = (int)$valores[1];
+$c = (int)$valores[2];
+
+// Encontrar o maior dos três valores
+$maior = maiorEntreTres($a, $b, $c);
+
+// Saída
+echo $maior . " eh o maior\n";
+?>
