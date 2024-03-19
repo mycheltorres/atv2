@@ -1,0 +1,12 @@
+<?php
+// Leitura dos valores de entrada
+$x = intval(readline());
+$y = intval(readline());
+
+// Verificação e impressão dos valores entre x e y
+for ($i = min($x, $y) + 1; $i < max($x, $y); $i++) {
+    if ($i % 5 == 2 || $i % 5 == 3) {
+        echo $i . "\n";
+    }
+}
+?>
