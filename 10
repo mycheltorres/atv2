@@ -1,0 +1,46 @@
+<?php
+// Função para decodificar uma string usando a cifra de César modificada
+function decodificarCifraDeCesar($string, $deslocamento) {
+    $tamanho = strlen($string);
+    $resultado = '';
+
+    // Itera sobre cada caractere da string
+    for ($i = 0; $i < $tamanho; $i++) {
+        // Obtém o caractere atual
+        $caractere = $string[$i];
+
+        // Verifica se o caractere é uma letra maiúscula
+        if (ctype_upper($caractere)) {
+            // Calcula o novo caractere decodificado
+            $novo_codigo = ord($caractere) - $deslocamento;
+
+            // Verifica se o novo código ultrapassou o limite inferior ('A')
+            if ($novo_codigo < ord('A')) {
+                // Calcula o novo código levando em conta a rotação do alfabeto
+                $novo_codigo += 26;
+            }
+
+            // Adiciona o caractere decodificado ao resultado
+            $resultado .= chr($novo_codigo);
+        } else {
+            // Se não for uma letra maiúscula, mantém o caractere original
+            $resultado .= $caractere;
+        }
+    }
+
+    return $resultado;
+}
+
+// Leitura do número de casos de teste
+$n = intval(trim(fgets(STDIN)));
+
+// Loop para processar cada caso de teste
+for ($i = 0; $i < $n; $i++) {
+    // Leitura da string criptografada e do deslocamento
+    $string_criptografada = trim(fgets(STDIN));
+    $deslocamento = intval(trim(fgets(STDIN)));
+
+    // Decodifica a string e imprime o resultado
+    echo decodificarCifraDeCesar($string_criptografada, $deslocamento) . PHP_EOL;
+}
+?>
