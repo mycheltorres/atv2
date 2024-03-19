@@ -1,0 +1,23 @@
+  <?php
+// Leitura dos valores de entrada
+$x = intval(readline());
+$y = intval(readline());
+
+// Função para verificar se um número é ímpar
+function isImpar($numero) {
+    return $numero % 2 != 0;
+}
+
+// Inicialização da variável de soma
+$soma = 0;
+
+// Loop para calcular a soma dos números ímpares entre X e Y
+for ($i = min($x, $y) + 1; $i < max($x, $y); $i++) {
+    if (isImpar($i)) {
+        $soma += $i;
+    }
+}
+
+// Saída do resultado
+echo $soma . "\n";
+?>
