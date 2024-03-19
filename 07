@@ -1,0 +1,36 @@
+<?php
+// Função para calcular os minutos restantes até o alarme
+function calcularMinutosParaDormir($h1, $m1, $h2, $m2) {
+    // Convertendo as horas para minutos
+    $minutos_atual = $h1 * 60 + $m1;
+    $minutos_alarme = $h2 * 60 + $m2;
+    
+    // Calculando a diferença entre os dois horários
+    $minutos_restantes = $minutos_alarme - $minutos_atual;
+    
+    // Se a diferença for negativa, significa que o alarme é para o dia seguinte
+    if ($minutos_restantes <= 0) {
+        $minutos_restantes += 24 * 60; // Adicionando 24 horas
+    }
+    
+    return $minutos_restantes;
+}
+
+// Leitura dos valores de entrada
+while (true) {
+    // Leitura dos valores de entrada
+    $entrada = explode(" ", readline());
+    $h1 = intval($entrada[0]);
+    $m1 = intval($entrada[1]);
+    $h2 = intval($entrada[2]);
+    $m2 = intval($entrada[3]);
+    
+    // Verifica se é o final da entrada
+    if ($h1 == 0 && $m1 == 0 && $h2 == 0 && $m2 == 0) {
+        break;
+    }
+    
+    // Calcula e imprime o número de minutos restantes
+    echo calcularMinutosParaDormir($h1, $m1, $h2, $m2) . PHP_EOL;
+}
+?>
